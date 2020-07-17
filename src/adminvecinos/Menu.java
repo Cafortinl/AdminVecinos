@@ -115,6 +115,9 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_principal = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        tf_busqueda = new javax.swing.JTextField();
+        jb_buscar = new javax.swing.JButton();
         jp_agregarVecino = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -603,6 +606,7 @@ public class Menu extends javax.swing.JFrame {
 
         jl_titulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jl_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        jl_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jl_titulo.setText("Menu");
         jl_titulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -640,18 +644,16 @@ public class Menu extends javax.swing.JFrame {
         jp_menuLayout.setHorizontalGroup(
             jp_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_menuLayout.createSequentialGroup()
-                .addGroup(jp_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jb_editarVecino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jb_agregarVecinoMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jp_menuLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jl_titulo))
-                    .addComponent(jb_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jp_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel34)
                 .addContainerGap(67, Short.MAX_VALUE))
+            .addGroup(jp_menuLayout.createSequentialGroup()
+                .addGroup(jp_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jb_editarVecino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_agregarVecinoMenu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                    .addComponent(jb_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jl_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jp_menuLayout.setVerticalGroup(
             jp_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -676,14 +678,14 @@ public class Menu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "No. casa", "No. Telefono", "Correo"
+                "Id", "Nombre", "No. casa", "No. Teléfono", "Correo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -699,28 +701,48 @@ public class Menu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel7.setText("Vecinos");
 
+        jLabel37.setText("Búsqueda");
+
+        jb_buscar.setText("Buscar");
+        jb_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_buscarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jp_principalLayout = new javax.swing.GroupLayout(jp_principal);
         jp_principal.setLayout(jp_principalLayout);
         jp_principalLayout.setHorizontalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jp_principalLayout.createSequentialGroup()
+                .addGap(168, 168, 168)
                 .addGroup(jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel37)
                     .addGroup(jp_principalLayout.createSequentialGroup()
-                        .addGap(494, 494, 494)
-                        .addComponent(jLabel7))
-                    .addGroup(jp_principalLayout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(174, Short.MAX_VALUE))
+                        .addComponent(tf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_buscar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_principalLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
                 .addComponent(jLabel7)
-                .addGap(39, 39, 39)
+                .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_buscar))
+                .addGap(49, 49, 49))
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -1134,6 +1156,7 @@ public class Menu extends javax.swing.JFrame {
         jp_principal.setVisible(true);
         jp_agregarVecino.setVisible(false);
         jp_editarVecino.setVisible(false);
+        actualizarTablaPrincipal();
     }//GEN-LAST:event_jl_tituloMouseClicked
 
     private void jb_agregarVecinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarVecinoMouseClicked
@@ -1661,6 +1684,44 @@ public class Menu extends javax.swing.JFrame {
         jd_agregarNombreAlt.setLocationRelativeTo(this);
     }//GEN-LAST:event_jb_agregarNombreAltEditarMouseClicked
 
+    private void jb_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarMouseClicked
+        jt_principal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "No. casa", "No. Teléfono", "Correo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        DefaultTableModel m = (DefaultTableModel)jt_principal.getModel();
+        String nombre = tf_busqueda.getText().toLowerCase();
+        for(Vecino v : vecinos){
+            Object[] info = {v.getId(), v.getNombre(), v.getNumCasa(), v.getNumTel(), v.getCorreo()};
+            for(String n : v.getNombresAlt()){
+                if(n.toLowerCase().contains(nombre)){
+                    m.addRow(info);
+                }
+            }
+        }
+        jt_principal.setModel(m);
+        tf_busqueda.setText("");
+    }//GEN-LAST:event_jb_buscarMouseClicked
+
     public int pagoSeleccionado(){
         int pos = -1;
         DefaultTableModel m = (DefaultTableModel)jt_pagosEditarVecino.getModel();
@@ -1741,14 +1802,14 @@ public class Menu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "No. casa", "No. Telefono", "Correo"
+                "Id", "Nombre", "No. casa", "No. Teléfono", "Correo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1763,7 +1824,7 @@ public class Menu extends javax.swing.JFrame {
         DefaultTableModel m = (DefaultTableModel)jt_principal.getModel();
         
         for (Vecino v : vecinos) {
-            Object[] info = {v.getNombre(), v.getNumCasa(), v.getNumTel(), v.getCorreo()};
+            Object[] info = {v.getId(),v.getNombre(), v.getNumCasa(), v.getNumTel(), v.getCorreo()};
             m.addRow(info);
         }
         
@@ -1774,83 +1835,85 @@ public class Menu extends javax.swing.JFrame {
         int pos = -1;
         DefaultTableModel m = (DefaultTableModel)jt_principal.getModel();
         if(jt_principal.getSelectedRow() >= 0){
-            pos = jt_principal.getSelectedRow();
+            pos = (int)m.getValueAt(jt_principal.getSelectedRow(), 0);
             vSelec = pos;
         }
         return pos;
     }
     
     public void actualizarInfoEditarVecino(){
-        Vecino temp = vecinos.get(vSelec);
-        jl_editarVecino.setText("Editando a: " + temp.getNombre());
-        tf_nombreEditarVecino.setText(temp.getNombre());
-        tf_numCasaEditarVecino.setText(temp.getNumCasa());
-        tf_cuotaEditarVecino.setText(Double.toString(temp.getCuota()));
-        ff_numTelEditarVecino.setText(temp.getNumTel());
-        tf_correoEditarVecino.setText(temp.getCorreo());
-        tf_codZonaEditarVecino.setText(temp.getCodZona());
-        cb_isEmpresaEditarVecino.setSelected(temp.isIsEmpresa());
-        
-        jt_pagosEditarVecino.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        if(!vecinos.isEmpty()){
+            Vecino temp = vecinos.get(vSelec);
+            jl_editarVecino.setText("Editando a: " + temp.getNombre());
+            tf_nombreEditarVecino.setText(temp.getNombre());
+            tf_numCasaEditarVecino.setText(temp.getNumCasa());
+            tf_cuotaEditarVecino.setText(Double.toString(temp.getCuota()));
+            ff_numTelEditarVecino.setText(temp.getNumTel());
+            tf_correoEditarVecino.setText(temp.getCorreo());
+            tf_codZonaEditarVecino.setText(temp.getCodZona());
+            cb_isEmpresaEditarVecino.setSelected(temp.isIsEmpresa());
 
-            },
-            new String [] {
-                "id", "monto", "fecha", "mes"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
+            jt_pagosEditarVecino.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
+                },
+                new String [] {
+                    "id", "monto", "fecha", "mes"
+                }
+            ) {
+                Class[] types = new Class [] {
+                    java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+                };
+                boolean[] canEdit = new boolean [] {
+                    false, false, false, false
+                };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                public Class getColumnClass(int columnIndex) {
+                    return types [columnIndex];
+                }
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });
+            DefaultTableModel m = (DefaultTableModel)jt_pagosEditarVecino.getModel();
+            for(Pago p : temp.getPagos()){
+                Object[] info = {p.getId(), p.getMonto(), p.getFechaString(), p.getMesString()};
+                m.addRow(info);
             }
-        });
-        DefaultTableModel m = (DefaultTableModel)jt_pagosEditarVecino.getModel();
-        for(Pago p : temp.getPagos()){
-            Object[] info = {p.getId(), p.getMonto(), p.getFechaString(), p.getMesString()};
-            m.addRow(info);
+            jt_pagosEditarVecino.setModel(m);
+
+            jt_nombresAltEditarVecino.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+
+                },
+                new String [] {
+                    "id", "nombre"
+                }
+            ) {
+                Class[] types = new Class [] {
+                    java.lang.String.class, java.lang.String.class
+                };
+                boolean[] canEdit = new boolean [] {
+                    false, false
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types [columnIndex];
+                }
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit [columnIndex];
+                }
+            });
+            m = (DefaultTableModel) jt_nombresAltEditarVecino.getModel();
+            for(String n : temp.getNombresAlt()){
+                String id = 'V' + Integer.toString(temp.getId()) + "NA" + Integer.toString(temp.getNombresAlt().indexOf(n));
+                Object[] info = {id, n};
+                m.addRow(info);
+            }
+            jt_nombresAltEditarVecino.setModel(m);
         }
-        jt_pagosEditarVecino.setModel(m);
-        
-        jt_nombresAltEditarVecino.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "id", "nombre"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        m = (DefaultTableModel) jt_nombresAltEditarVecino.getModel();
-        for(String n : temp.getNombresAlt()){
-            String id = 'V' + Integer.toString(temp.getId()) + "NA" + Integer.toString(temp.getNombresAlt().indexOf(n));
-            Object[] info = {id, n};
-            m.addRow(info);
-        }
-        jt_nombresAltEditarVecino.setModel(m);
         
     }
     
@@ -1926,6 +1989,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1941,6 +2005,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jb_agregarPagoEditar;
     private javax.swing.JButton jb_agregarVecino;
     private javax.swing.JButton jb_agregarVecinoMenu;
+    private javax.swing.JButton jb_buscar;
     private javax.swing.JButton jb_cambiarInfo;
     private javax.swing.JButton jb_editarNombreAlt;
     private javax.swing.JButton jb_editarPago;
@@ -1981,6 +2046,7 @@ public class Menu extends javax.swing.JFrame {
     private com.toedter.calendar.JMonthChooser mc_mes;
     private com.toedter.calendar.JMonthChooser mc_mesEditarPago;
     private com.toedter.calendar.JMonthChooser mc_pagosMes;
+    private javax.swing.JTextField tf_busqueda;
     private javax.swing.JTextField tf_codZona;
     private javax.swing.JTextField tf_codZonaEditarVecino;
     private javax.swing.JTextField tf_correo;
