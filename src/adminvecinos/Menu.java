@@ -64,6 +64,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         mc_mesEditarPago = new com.toedter.calendar.JMonthChooser();
         jb_editarPagoDialog = new javax.swing.JButton();
+        yc_editarPago = new com.toedter.calendar.JYearChooser();
+        jLabel38 = new javax.swing.JLabel();
         jd_selecReporte = new javax.swing.JDialog();
         jLabel25 = new javax.swing.JLabel();
         jb_pagosMes = new javax.swing.JButton();
@@ -183,6 +185,8 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel38.setText("Año");
+
         javax.swing.GroupLayout jd_editarPagoLayout = new javax.swing.GroupLayout(jd_editarPago.getContentPane());
         jd_editarPago.getContentPane().setLayout(jd_editarPagoLayout);
         jd_editarPagoLayout.setHorizontalGroup(
@@ -190,12 +194,21 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jd_editarPagoLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jd_editarPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel24)
                     .addComponent(jLabel23)
                     .addComponent(jLabel22)
                     .addComponent(tf_montoEditarPago)
-                    .addComponent(dc_fechaEditarPago, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                    .addComponent(mc_mesEditarPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dc_fechaEditarPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_editarPagoLayout.createSequentialGroup()
+                        .addGroup(jd_editarPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_editarPagoLayout.createSequentialGroup()
+                                .addComponent(mc_mesEditarPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jd_editarPagoLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addGap(98, 98, 98)))
+                        .addGroup(jd_editarPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel38)
+                            .addComponent(yc_editarPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_editarPagoLayout.createSequentialGroup()
                 .addContainerGap(262, Short.MAX_VALUE)
@@ -221,9 +234,13 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dc_fechaEditarPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel24)
+                .addGroup(jd_editarPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel38))
                 .addGap(18, 18, 18)
-                .addComponent(mc_mesEditarPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jd_editarPagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mc_mesEditarPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yc_editarPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jb_editarPagoDialog)
                 .addGap(34, 34, 34))
@@ -1298,7 +1315,7 @@ public class Menu extends javax.swing.JFrame {
             jd_editarPago.setVisible(true);
             jd_editarPago.pack();
             jd_editarPago.setLocationRelativeTo(this);
-            Pago temp = vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado());
+            Pago temp = vecinos.get(vSelec).getPagos().get(pagoSeleccionado());
             tf_montoEditarPago.setText(Double.toString(temp.getMonto()));
             dc_fechaEditarPago.setDate(temp.getFecha());
             mc_mesEditarPago.setMonth(temp.getMes().getMonth());
@@ -1309,16 +1326,11 @@ public class Menu extends javax.swing.JFrame {
 
     private void jb_editarPagoDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_editarPagoDialogMouseClicked
         double monto;
-        Date fecha = null, mes = null;
-        SimpleDateFormat df = null;
+        Date fecha = null, mes = new Date();
         monto = Double.parseDouble(tf_montoEditarPago.getText());
-        df = new SimpleDateFormat("MM");
         fecha = dc_fechaEditarPago.getDate();
-        try {
-            mes = df.parse(Integer.toString(mc_mesEditarPago.getMonth() + 1));
-        } catch (ParseException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        mes.setMonth(mc_mesEditarPago.getMonth());
+        mes.setYear(yc_editarPago.getYear() - 1900);
         vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado()).setMonto(monto);
         vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado()).setFecha(fecha);
         vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado()).setMes(mes);
@@ -1710,13 +1722,23 @@ public class Menu extends javax.swing.JFrame {
         });
         DefaultTableModel m = (DefaultTableModel)jt_principal.getModel();
         String nombre = tf_busqueda.getText().toLowerCase();
+        ArrayList<Vecino> results = new ArrayList();
         for(Vecino v : vecinos){
-            Object[] info = {v.getId(), v.getNombre(), v.getNumCasa(), v.getNumTel(), v.getCorreo()};
-            for(String n : v.getNombresAlt()){
-                if(n.toLowerCase().contains(nombre)){
-                    m.addRow(info);
+            if(v.getNombre().toLowerCase().contains(nombre)){
+                if(!results.contains(v))
+                    results.add(v);
+            }else{
+                for(String n : v.getNombresAlt()){
+                    if(n.toLowerCase().contains(nombre)){
+                        if(!results.contains(v))
+                            results.add(v);
+                    }
                 }
             }
+        }
+        for(Vecino v : results){
+            Object[] info = {v.getId(), v.getNombre(), v.getNumCasa(), v.getNumTel(), v.getCorreo()};
+            m.addRow(info);
         }
         jt_principal.setModel(m);
         tf_busqueda.setText("");
@@ -1990,6 +2012,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2061,6 +2084,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextField tf_numCasa;
     private javax.swing.JTextField tf_numCasaEditarVecino;
     private com.toedter.calendar.JYearChooser yc_agregarPago;
+    private com.toedter.calendar.JYearChooser yc_editarPago;
     private com.toedter.calendar.JYearChooser yc_pagosAnuales;
     // End of variables declaration//GEN-END:variables
     ArrayList<Vecino> vecinos = new ArrayList();
