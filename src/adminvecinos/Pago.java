@@ -28,7 +28,7 @@ public class Pago {
         this.monto = monto;
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         this.fecha = df.parse(fecha);
-        df = new SimpleDateFormat("MM");
+        df = new SimpleDateFormat("MM/yyyy");
         this.mes = df.parse(mes);
         this.idVecino = idVecino;
         this.id = id;
@@ -73,7 +73,7 @@ public class Pago {
     }
     
     public String getMesString(){
-        SimpleDateFormat df = new SimpleDateFormat("MM");
+        SimpleDateFormat df = new SimpleDateFormat("MM/yyyy");
         String mesString = df.format(mes);
         return mesString;
     }
