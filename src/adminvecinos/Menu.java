@@ -1027,35 +1027,35 @@ public class Menu extends javax.swing.JFrame {
                                 .addComponent(tf_correoEditarVecino)
                                 .addComponent(jLabel35)
                                 .addComponent(tf_codZonaEditarVecino))
-                            .addComponent(cb_isEmpresaEditarVecino))
-                        .addGap(101, 101, 101)
-                        .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jp_editarVecinoLayout.createSequentialGroup()
-                                    .addComponent(jb_agregarPagoEditar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jb_editarPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jb_eliminarPago))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel19))
-                        .addGap(61, 61, 61)
-                        .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jp_editarVecinoLayout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(jb_eliminarVecino))
-                            .addComponent(jLabel20)
-                            .addGroup(jp_editarVecinoLayout.createSequentialGroup()
-                                .addComponent(jb_agregarNombreAltEditar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jb_editarNombreAlt)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jb_eliminarNombreAlt))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(cb_isEmpresaEditarVecino)))
                     .addGroup(jp_editarVecinoLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(61, 61, 61)
                         .addComponent(jb_cambiarInfo)))
-                .addGap(0, 30, Short.MAX_VALUE))
+                .addGap(101, 101, 101)
+                .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jp_editarVecinoLayout.createSequentialGroup()
+                            .addComponent(jb_agregarPagoEditar)
+                            .addGap(18, 18, 18)
+                            .addComponent(jb_editarPago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jb_eliminarPago))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel19))
+                .addGap(61, 61, 61)
+                .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_editarVecinoLayout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(jb_eliminarVecino))
+                    .addComponent(jLabel20)
+                    .addGroup(jp_editarVecinoLayout.createSequentialGroup()
+                        .addComponent(jb_agregarNombreAltEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_editarNombreAlt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_eliminarNombreAlt))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
+                .addGap(0, 51, Short.MAX_VALUE))
         );
         jp_editarVecinoLayout.setVerticalGroup(
             jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1093,12 +1093,12 @@ public class Menu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tf_correoEditarVecino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel35)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_codZonaEditarVecino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                                .addComponent(jLabel35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_codZonaEditarVecino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jp_editarVecinoLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
                                 .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jb_editarPago)
                                     .addComponent(jb_eliminarPago)
@@ -1110,10 +1110,14 @@ public class Menu extends javax.swing.JFrame {
                                 .addGap(28, 28, 28))
                             .addGroup(jp_editarVecinoLayout.createSequentialGroup()
                                 .addGroup(jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jb_agregarPagoEditar)
-                                    .addComponent(cb_isEmpresaEditarVecino))
-                                .addGap(24, 24, 24)
-                                .addComponent(jb_cambiarInfo)
+                                    .addGroup(jp_editarVecinoLayout.createSequentialGroup()
+                                        .addGap(37, 37, 37)
+                                        .addComponent(jb_agregarPagoEditar))
+                                    .addGroup(jp_editarVecinoLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cb_isEmpresaEditarVecino)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb_cambiarInfo)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jp_editarVecinoLayout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1234,7 +1238,7 @@ public class Menu extends javax.swing.JFrame {
         tf_monto.setText("");
         dc_fecha.setDate(null);
         mc_mes.setMonth(new Date().getMonth());
-        yc_agregarPago.setYear(new Date().getYear());
+        yc_agregarPago.setYear(new Date().getYear() + 1900);
         
         actualizarTablaPrincipal();
         actualizarInfoEditarVecino();
@@ -1331,9 +1335,9 @@ public class Menu extends javax.swing.JFrame {
         fecha = dc_fechaEditarPago.getDate();
         mes.setMonth(mc_mesEditarPago.getMonth());
         mes.setYear(yc_editarPago.getYear() - 1900);
-        vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado()).setMonto(monto);
-        vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado()).setFecha(fecha);
-        vecinos.get(vecinoSeleccionado()).getPagos().get(pagoSeleccionado()).setMes(mes);
+        vecinos.get(vSelec).getPagos().get(pagoSeleccionado()).setMonto(monto);
+        vecinos.get(vSelec).getPagos().get(pagoSeleccionado()).setFecha(fecha);
+        vecinos.get(vSelec).getPagos().get(pagoSeleccionado()).setMes(mes);
         
         db.conectar();
         try{
