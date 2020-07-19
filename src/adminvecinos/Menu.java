@@ -663,7 +663,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jp_menuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel34)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(jp_menuLayout.createSequentialGroup()
                 .addGroup(jp_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jb_editarVecino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -744,7 +744,7 @@ public class Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jb_buscar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
         jp_principalLayout.setVerticalGroup(
             jp_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1054,8 +1054,8 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jb_editarNombreAlt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jb_eliminarNombreAlt))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
-                .addGap(0, 51, Short.MAX_VALUE))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 49, Short.MAX_VALUE))
         );
         jp_editarVecinoLayout.setVerticalGroup(
             jp_editarVecinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
