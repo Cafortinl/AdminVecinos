@@ -1656,12 +1656,14 @@ public class Menu extends javax.swing.JFrame {
             
             for(int i = 0;i < 12;i++){
                 m.setMonth(i);
+                System.out.println(mf.format(m) + m.getMonth());
                 for (Vecino v : vecinos) {
                     for(Pago p : v.getPagos()){
-                        if((p.getFecha().getYear() == f.getYear()) && (p.getMes().getMonth() == m.getMonth())){
+                        if((p.getMes().getYear() == f.getYear()) && (p.getMes().getMonth() == m.getMonth())){
                             totPer++;
                             totMes += p.getMonto();
                             total += p.getMonto();
+                            System.out.println(v.getNombre());
                         }
                     }
                 }
