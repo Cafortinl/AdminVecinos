@@ -6,6 +6,7 @@
 package adminvecinos;
 
 import com.lowagie.text.Document;
+import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfTable;
@@ -1639,22 +1640,42 @@ public class Menu extends javax.swing.JFrame {
             SimpleDateFormat mf = new SimpleDateFormat("MMM");
             Date f = new Date();
             Date m = new Date();
-            int totPer = 0;
-            double totMes = 0, total = 0;
+            //int totPer = 0;
+            //double totMes = 0, total = 0;
             f.setYear(yc_pagosAnuales.getYear() - 1900);
             Document documento = new Document();
             JFileChooser fc = new JFileChooser();
+            documento.setPageSize(PageSize.LETTER.rotate());
             int o = fc.showSaveDialog(this.getFrames()[0]);
             PdfWriter pdf = PdfWriter.getInstance(documento, new FileOutputStream(fc.getSelectedFile().getPath()+".pdf"));
             documento.open();
             
             documento.add(new Paragraph("Pagos del año: " + df.format(f) + "\n\n"));
-            PdfPTable pagos = new PdfPTable(3);
-            pagos.addCell("No. personas");
-            pagos.addCell("Mes");
-            pagos.addCell("Total");
-            
+            PdfPTable pagos = new PdfPTable(14);
+            pagos.addCell("Vecino");
+            pagos.addCell("Cuota");
             for(int i = 0;i < 12;i++){
+                m.setMonth(i);
+                pagos.addCell(mf.format(m));
+            }
+            
+            for(Vecino v : vecinos){
+                pagos.addCell(v.getNombre());
+                pagos.addCell(Double.toString(v.getCuota()));
+                String[] arr = {"","","","","","","","","","","",""};
+                for(Pago p : v.getPagos()){
+                    if((p.getMes().getYear() == f.getYear())){
+                        System.out.println(p.getMesString());
+                        arr[p.getMes().getMonth()] = p.getFechaString();
+                    }
+                }
+                for(String s : arr){
+                    pagos.addCell(s);
+                }
+            }
+            
+            
+            /*for(int i = 0;i < 12;i++){
                 m.setMonth(i);
                 System.out.println(mf.format(m) + m.getMonth());
                 for (Vecino v : vecinos) {
@@ -1675,7 +1696,7 @@ public class Menu extends javax.swing.JFrame {
             }
             pagos.addCell("");
             pagos.addCell("Total");
-            pagos.addCell(Double.toString(total));
+            pagos.addCell(Double.toString(total));*/
             
             documento.add(pagos);
             documento.close();
