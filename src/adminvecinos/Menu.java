@@ -1674,30 +1674,6 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
             
-            
-            /*for(int i = 0;i < 12;i++){
-                m.setMonth(i);
-                System.out.println(mf.format(m) + m.getMonth());
-                for (Vecino v : vecinos) {
-                    for(Pago p : v.getPagos()){
-                        if((p.getMes().getYear() == f.getYear()) && (p.getMes().getMonth() == m.getMonth())){
-                            totPer++;
-                            totMes += p.getMonto();
-                            total += p.getMonto();
-                            System.out.println(v.getNombre());
-                        }
-                    }
-                }
-                pagos.addCell(Integer.toString(totPer));
-                pagos.addCell(mf.format(m));
-                pagos.addCell(Double.toString(totMes));
-                totPer = 0;
-                totMes = 0;
-            }
-            pagos.addCell("");
-            pagos.addCell("Total");
-            pagos.addCell(Double.toString(total));*/
-            
             documento.add(pagos);
             documento.close();
             
