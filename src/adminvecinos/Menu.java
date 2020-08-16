@@ -1520,6 +1520,7 @@ public class Menu extends javax.swing.JFrame {
                 Date f = new Date();
                 SimpleDateFormat df = new SimpleDateFormat("MMM");
                 ArrayList<Integer> meses = new ArrayList();
+                Pago[] pagos = new Pago[f.getMonth() + 1];
                 for(int i = 0;i <= f.getMonth();i++){
                     meses.add(i);
                 }
@@ -1532,7 +1533,7 @@ public class Menu extends javax.swing.JFrame {
                 
                 documento.add(new Paragraph("Estado de cuenta\n"));
                 documento.add(new Paragraph(temp.getNombre() + " " + temp.getCorreo() + "\n\n"));
-                documento.add(new Paragraph("Meses pagados\n\n"));
+                documento.add(new Paragraph("Meses pagados " + Integer.toString(f.getYear()+1900) + "\n\n"));
                 
                 PdfPTable pagados = new PdfPTable(3);
                 pagados.addCell("Mes");
@@ -1540,11 +1541,16 @@ public class Menu extends javax.swing.JFrame {
                 pagados.addCell("Fecha");
                 for(Pago p : temp.getPagos()){
                     if((p.getMes().getMonth() <= f.getMonth()) &&  (p.getMes().getYear() == f.getYear())){
+                        pagos[p.getMes().getMonth()] = p;
+                        if(meses.contains(p.getMes().getMonth()))
+                            meses.remove(meses.indexOf(p.getMes().getMonth()));
+                    }
+                }
+                for(Pago p : pagos){
+                    if(p != null){
                         pagados.addCell(df.format(p.getMes()));
                         pagados.addCell(Double.toString(p.getMonto()));
                         pagados.addCell(p.getFechaString());
-                        if(meses.contains(p.getMes().getMonth()))
-                            meses.remove(meses.indexOf(p.getMes().getMonth()));
                     }
                 }
                 documento.add(pagados);
@@ -1565,6 +1571,8 @@ public class Menu extends javax.swing.JFrame {
                     pendientes.addCell(Double.toString(total));
                     documento.add(pendientes);
                 }
+                
+                documento.add(new Paragraph("Si existe algún dato incorrecto o inconsistencia en este estado de cuenta por favor reportelo vía WhatsApp al 3261-1559 y gustosamente le ayudaremos."));
                 
                 documento.close();
                 
